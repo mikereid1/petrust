@@ -2,9 +2,11 @@ use actix_web::middleware::Logger;
 use actix_web::{App, HttpServer};
 use env_logger::Env;
 
-use service::config;
 
-mod service;
+mod config;
+mod pet;
+mod store;
+mod user;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {

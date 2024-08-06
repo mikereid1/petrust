@@ -1,10 +1,8 @@
 use actix_web::web;
+use crate::pet::controller::{create_pet, delete_pet, get_pet, update_pet};
+use crate::store::controller::{create_order, delete_order, get_inventory, get_order};
+use crate::user::controller::{create_user, delete_user, get_user, login, logout, update_user};
 
-use crate::service::{
-    pet::{create_pet, delete_pet, get_pet, update_pet},
-    store::{create_order, delete_order, get_inventory, get_order},
-    user::{create_user, delete_user, get_user, login, logout, update_user},
-};
 
 pub fn configure_services(cfg: &mut web::ServiceConfig) {
     cfg.service(

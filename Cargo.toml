@@ -3,7 +3,12 @@ name = "pet-api"
 version = "0.1.0"
 edition = "2021"
 
+[target.'cfg(target_os = "linux")']
+linker = "gcc"
+
 [dependencies]
 actix-web = "4.8.0"
+diesel = { version = "2.2.2", features = ["postgres"]}
+dotenvy = "0.15.7"
 env_logger = "0.11.3"
 serde = { version = "1.0.203", features = ["derive"] }

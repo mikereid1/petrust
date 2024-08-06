@@ -1,23 +1,27 @@
+use diesel::{Queryable, Selectable};
+
+#[derive(Queryable, Selectable)]
+#[diesel(table_name = crate::schema::pets)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Pet{
-    id: u64,
+    id: i32,
     name: String,
-    category: Category,
-    tags: Vec<Tag>,
-    status: Status,
+    category_id: i32,
+    status: String,
 }
 
+#[derive(Queryable, Selectable)]
+#[diesel(table_name = crate::schema::categories)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Category {
-    id: u64,
+    id: i32,
     name: String,
 }
 
+#[derive(Queryable, Selectable)]
+#[diesel(table_name = crate::schema::tags)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Tag {
-    id: u64,
+    id: i32,
     name: String,
-}
-
-pub enum Status {
-    Available,
-    Pending,
-    Sold,
 }

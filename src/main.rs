@@ -8,6 +8,7 @@ use env_logger::Env;
 
 mod config;
 mod pet;
+mod schema;
 mod store;
 mod user;
 
